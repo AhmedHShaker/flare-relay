@@ -35,8 +35,8 @@ app.post('/send', async (req, res) => {
     });
     res.json({ success: true });
   } catch (err) {
-    console.error('Send failed:', err.message);
-    res.status(500).json({ error: 'Send failed' });
+    console.error('Send failed:', err.message, err.code, err.responseCode);
+    res.status(500).json({ error: 'Send failed', detail: err.message });
   }
 });
 
